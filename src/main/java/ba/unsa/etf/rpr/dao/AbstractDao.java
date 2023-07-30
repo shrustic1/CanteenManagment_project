@@ -48,5 +48,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
 
     public abstract T row2object(ResultSet rs) throws MyException;
 
+    public abstract Map<String, Object> object2row(T object);
+
 
 }
