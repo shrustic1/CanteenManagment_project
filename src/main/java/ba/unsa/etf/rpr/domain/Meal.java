@@ -16,4 +16,17 @@ public class Meal implements Idable{
     public Boolean getTaken() {
         return taken;
     }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTaken(Boolean taken) {
+        this.taken = taken;
+    }
 }
