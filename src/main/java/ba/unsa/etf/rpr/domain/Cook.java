@@ -29,4 +29,24 @@ public class Cook implements Idable{
         return numberOfMealsMade;
     }
 
+    @Override
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setNumberOfMealsMade(int numberOfMealsMade) {
+        this.numberOfMealsMade = numberOfMealsMade;
+    }
 }
