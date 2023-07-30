@@ -4,4 +4,6 @@ public interface Idable {
 
     void setId (int id);
 
+    int getId();
+
 }
