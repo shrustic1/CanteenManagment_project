@@ -50,5 +50,32 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
 
     public abstract Map<String, Object> object2row(T object);
 
+    public T executeQueryUnique (String query, Object[] params) throws MyException{
+        List<T> result = executeQuery(query, params);
+        if (result != null && result.size() == 1){
+            return result.get(0);
+        }else{
+            throw new MyException("Object not found.");
+        }
+    }
+
+    private List<T> executeQuery(String query, Object[] params) throws MyException {
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            if (params != null){
+                for (int i=1; i<= params.length; i++){
+                    stmt.setObject(i, params[i-1]);
+                }
+            }
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<T> resultList = new ArrayList<T>();
+            while (rs.next()){
+                resultList.add(row2object(rs));
+            }
+            return resultList;
+        } catch (SQLException e) {
+            throw new MyException(e.getMessage(), e);
+        }
+    }
 
 }
