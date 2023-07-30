@@ -50,6 +50,10 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
 
     public abstract Map<String, Object> object2row(T object);
 
+    public T getById(int id) throws MyException{
+        return executeQueryUnique("SELECT * FROM" + this.tableName + "WHERE id = ?", new Object[]{id});
+    }
+
     public T executeQueryUnique (String query, Object[] params) throws MyException{
         List<T> result = executeQuery(query, params);
         if (result != null && result.size() == 1){
