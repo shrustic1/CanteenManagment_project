@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.domain;
 
 public class Cook implements Idable{
 
-    private int Id;
+    private int id;
     private String name;
     private String surname;
     private String phoneNumber;
@@ -10,7 +10,7 @@ public class Cook implements Idable{
 
     @Override
     public int getId() {
-        return Id;
+        return id;
     }
 
     public String getName() {
@@ -31,7 +31,7 @@ public class Cook implements Idable{
 
     @Override
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public void setName(String name) {
