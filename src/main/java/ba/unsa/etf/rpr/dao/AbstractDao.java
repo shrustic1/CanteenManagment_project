@@ -54,6 +54,10 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return executeQueryUnique("SELECT * FROM" + this.tableName + "WHERE id = ?", new Object[]{id});
     }
 
+    public List<T> getAll() throws MyException{
+        return executeQuery("SELECT * FROM" + tableName, null);
+    }
+
     public T executeQueryUnique (String query, Object[] params) throws MyException{
         List<T> result = executeQuery(query, params);
         if (result != null && result.size() == 1){
@@ -114,5 +118,18 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
         return columns.toString();
     }
+
+    public void delete(int id) throws MyException{
+        String sql = "DELETE FROM "+tableName+"WHERE id = ?";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stmt.setObject(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new MyException(e.getMessage(), e);
+        }
+    }
+
+
 
 }
