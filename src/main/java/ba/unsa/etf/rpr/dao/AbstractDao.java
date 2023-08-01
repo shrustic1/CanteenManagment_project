@@ -104,7 +104,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
     }
 
-    private String prepareUpdateInserts (Map<String, Object> row){
+    private String prepareUpdateParts (Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
 
         int counter = 0;
@@ -157,6 +157,35 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         } catch (SQLException e) {
             throw new MyException(e.getMessage(), e);
         }
+    }
+
+    public T update (T item) throws MyException {
+        Map<String, Object> row = object2row(item);
+        String updateColumns = prepareUpdateParts(row);
+        StringBuilder builder = new StringBuilder();
+        builder.append("UPDATE ")
+                .append(tableName)
+                .append(" SET")
+                .append(updateColumns)
+                .append(" WHERE id = ?");
+
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
+            int counter = 1;
+            for (Map.Entry<String, Object> entry : row.entrySet()){
+                if (entry.getKey().equals("id")) continue;
+                stmt.setObject(counter, entry.getValue());
+                counter++;
+            }
+
+            stmt.setObject(counter, item.getId());
+            stmt.executeUpdate();
+
+            return item;
+        } catch (SQLException e) {
+            throw new MyException(e.getMessage(), e);
+        }
+
     }
 
 }
