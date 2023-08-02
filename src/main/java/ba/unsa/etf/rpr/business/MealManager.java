@@ -11,5 +11,9 @@ public class MealManager {
         return DaoFactory.mealDao().getAll();
     }
 
+    public void delete(int id) throws MyException{
+        DaoFactory.mealDao().delete(id);
+    }
+
 
 }
