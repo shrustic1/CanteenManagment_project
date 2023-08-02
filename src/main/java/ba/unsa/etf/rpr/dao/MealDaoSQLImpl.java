@@ -60,5 +60,8 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
         return executeQuery("SELECT * FROM Meals WHERE taken = ?", new Object[]{taken});
     }
 
-
+    @Override
+    public List<Meal> searchByStudent(Student student) throws MyException {
+        return executeQuery("SELECT * FROM Meals WHERE student_id = ?", new Object[]{student.getId()});
+    }
 }
