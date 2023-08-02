@@ -9,5 +9,9 @@ import java.util.Map;
 
 public class StudentDaoSQLImpl extends AbstractDao<Student> implements StudentDao{
     private static StudentDaoSQLImpl instance = null;
+    private StudentDaoSQLImpl() {
+        super("Students");
+    }
+
 
 }
