@@ -46,12 +46,12 @@ public class StudentDaoSQLImpl extends AbstractDao<Student> implements StudentDa
 
     @Override
     public List<Student> searchByName(String name) throws MyException {
-        return executeQuery("SELECT * FROM Student WHERE name = ?", new Object[]{name});
+        return executeQuery("SELECT * FROM Students WHERE name = ?", new Object[]{name});
     }
 
     @Override
     public List<Student> searchBySurname(String surname) throws MyException {
-        return null;
+        return executeQuery("SELECT * FROM Students WHERE surname = ?", new Object[]{surname});
     }
 
     @Override
