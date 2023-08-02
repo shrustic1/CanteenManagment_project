@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class StudentDaoSQLImpl extends AbstractDao<Student> implements StudentDao{
     private static StudentDaoSQLImpl instance = null;
@@ -35,7 +36,12 @@ public class StudentDaoSQLImpl extends AbstractDao<Student> implements StudentDa
 
     @Override
     public Map<String, Object> object2row(Student object) {
-        return null;
+        Map<String, Object> item = new TreeMap<>();
+        item.put("id", object.getId());
+        item.put("name", object.getName());
+        item.put("surname", object.getSurname());
+        item.put("number_of_tokens", object.getNumberOfTokens());
+        return item;
     }
 
     @Override
