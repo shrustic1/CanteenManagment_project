@@ -14,6 +14,8 @@ public class MealManager {
     public void delete(int id) throws MyException{
         DaoFactory.mealDao().delete(id);
     }
-
+    public Meal getById(int id) throws MyException{
+        return DaoFactory.mealDao().getById(id);
+    }
 
 }
