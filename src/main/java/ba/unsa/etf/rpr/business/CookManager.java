@@ -11,4 +11,8 @@ public class CookManager {
     public void delete(int id) throws MyException{
         DaoFactory.cookDao().delete(id);
     }
+    public void update(Cook cook) throws MyException{
+        DaoFactory.cookDao().update(cook);
+    }
+
 }
