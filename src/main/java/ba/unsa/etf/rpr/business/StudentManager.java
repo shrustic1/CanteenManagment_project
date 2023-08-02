@@ -22,5 +22,7 @@ public class StudentManager {
     public List<Student> searchByName(String name) throws MyException{
         return DaoFactory.studentDao().searchByName(name);
     }
-
+    public List<Student> searchBySurname(String surname) throws MyException{
+        return DaoFactory.studentDao().searchBySurname(surname);
+    }
 }
