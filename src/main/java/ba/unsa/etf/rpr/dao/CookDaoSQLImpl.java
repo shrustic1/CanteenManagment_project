@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Cook;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
 public class CookDaoSQLImpl extends AbstractDao<Cook> implements CookDao{
@@ -20,7 +21,17 @@ public class CookDaoSQLImpl extends AbstractDao<Cook> implements CookDao{
 
     @Override
     public Cook row2object(ResultSet rs) throws MyException {
-        return null;
+        try {
+            Cook cook = new Cook();
+            cook.setId(rs.getInt("id"));
+            cook.setName(rs.getString("name"));
+            cook.setSurname(rs.getString("surname"));
+            cook.setPhoneNumber(rs.getString("phone_number"));
+            cook.setNumberOfMealsMade(rs.getInt("number_of_meals_made"));
+            return cook;
+        } catch (SQLException e) {
+            throw new MyException(e.getMessage(), e);
+        }
     }
 
     @Override
