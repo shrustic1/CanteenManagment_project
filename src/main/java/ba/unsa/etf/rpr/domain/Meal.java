@@ -4,6 +4,8 @@ public class Meal implements Idable{
     private int id;
     private String description;
     private Boolean taken;
+    private Cook cook;
+    private Student student;
 
     public int getId() {
         return id;
