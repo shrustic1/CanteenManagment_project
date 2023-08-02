@@ -1,10 +1,12 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Meal;
+import ba.unsa.etf.rpr.domain.Student;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -52,4 +54,11 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
     public Meal randomMeal() throws MyException {
         return executeQueryUnique("SELECT * FROM Meals ORDER BY RAND() LIMIT 1", null);
     }
+
+    @Override
+    public List<Meal> searchByTaken(Boolean taken) throws MyException {
+        return executeQuery("SELECT * FROM Meals WHERE taken = ?", new Object[]{taken});
+    }
+
+
 }

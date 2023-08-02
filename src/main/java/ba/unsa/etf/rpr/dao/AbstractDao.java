@@ -67,7 +67,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
-    private List<T> executeQuery(String query, Object[] params) throws MyException {
+    public List<T> executeQuery(String query, Object[] params) throws MyException {
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
             if (params != null){
