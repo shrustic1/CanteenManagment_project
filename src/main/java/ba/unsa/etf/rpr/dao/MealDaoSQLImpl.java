@@ -38,4 +38,15 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
 
     }
 
+    @Override
+    public Map<String, Object> object2row(Meal object) {
+        Map<String, Object> item = new TreeMap<>();
+        item.put("id", object.getId());
+        item.put("description", object.getDescription());
+        item.put("taken", object.getTaken());
+        item.put("cook_id", object.getCook().getId());
+        item.put("student_id", object.getStudent().getId());
+        return item;
+    }
+
 }
