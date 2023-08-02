@@ -11,5 +11,8 @@ import java.util.TreeMap;
 public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
 
     private static MealDaoSQLImpl instance = null;
+    private MealDaoSQLImpl(){
+        super("Meals");
+    }
 
 }
