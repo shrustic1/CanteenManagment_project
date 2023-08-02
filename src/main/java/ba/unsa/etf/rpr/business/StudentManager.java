@@ -25,4 +25,8 @@ public class StudentManager {
     public List<Student> searchBySurname(String surname) throws MyException{
         return DaoFactory.studentDao().searchBySurname(surname);
     }
+    public List<Student> searchByNumberOfTokens(int tokens) throws MyException{
+        return DaoFactory.studentDao().searchByNumberOfTokens(tokens);
+    }
+
 }
