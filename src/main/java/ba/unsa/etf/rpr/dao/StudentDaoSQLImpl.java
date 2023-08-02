@@ -55,8 +55,8 @@ public class StudentDaoSQLImpl extends AbstractDao<Student> implements StudentDa
     }
 
     @Override
-    public int searchByNumberOfTokens(int number) throws MyException {
-        return 0;
+    public List<Student> searchByNumberOfTokens(int number) throws MyException {
+        return executeQuery("SELECT * FROM Students WHERE number_of_tokens = ?", new Object[]{number});
     }
 
 }
