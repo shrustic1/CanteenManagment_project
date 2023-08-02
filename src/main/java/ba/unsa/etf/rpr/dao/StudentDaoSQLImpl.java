@@ -12,6 +12,10 @@ public class StudentDaoSQLImpl extends AbstractDao<Student> implements StudentDa
     private StudentDaoSQLImpl() {
         super("Students");
     }
+    public static StudentDao getInstance() {
+        if (instance == null) instance = new StudentDaoSQLImpl();
+        return instance;
+    }
 
 
 }
