@@ -18,5 +18,33 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
         if (instance == null) instance = new MealDaoSQLImpl();
         return instance;
     }
+    public static void removeInstance(){
+        if (instance!=null) instance = null;
+    }
 
+    @Override
+    public Meal row2object(ResultSet rs) throws MyException {
+        try {
+            Meal meal = new Meal();
+            meal.setId(rs.getInt("id"));
+            meal.setDescription(rs.getString("description"));
+            meal.setTaken(rs.getBoolean("taken"));
+            meal.setCook(DaoFactory.cookDao().getById(rs.getInt("cook_id")));
+            meal.setStudent(DaoFactory.studentDao().getById(rs.getInt("student_id")));
+            return meal;
+        } catch (SQLException e) {
+            throw new MyException(e.getMessage(), e);
+        }
+
+    }
+
+    @Override
+    public Map<String, Object> object2row(Meal object) {
+        Map<String, Object> item = new TreeMap<>();
+    }
+
+    @Override
+    public Meal randomMeal() throws MyException {
+        return null;
+    }
 }
