@@ -8,5 +8,7 @@ public class CookManager {
     public void add (Cook cook) throws MyException{
         DaoFactory.cookDao().add(cook);
     }
-
+    public void delete(int id) throws MyException{
+        DaoFactory.cookDao().delete(id);
+    }
 }
