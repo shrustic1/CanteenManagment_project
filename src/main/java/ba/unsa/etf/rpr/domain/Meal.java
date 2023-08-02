@@ -19,6 +19,14 @@ public class Meal implements Idable{
         return taken;
     }
 
+    public Cook getCook() {
+        return cook;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
     @Override
     public void setId(int id) {
         this.id = id;
