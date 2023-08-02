@@ -13,6 +13,9 @@ public class StudentManager {
     public void add(Student student) throws MyException{
         DaoFactory.studentDao().add(student);
     }
+    public void delete(int id) throws MyException{
+        DaoFactory.studentDao().delete(id);
+    }
 
 
 }
