@@ -10,4 +10,9 @@ public class StudentManager {
     public List<Student> getAll() throws MyException{
         return DaoFactory.studentDao().getAll();
     }
+    public void add(Student student) throws MyException{
+        DaoFactory.studentDao().add(student);
+    }
+
+
 }
