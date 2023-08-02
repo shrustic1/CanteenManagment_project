@@ -39,4 +39,12 @@ public class Meal implements Idable{
     public void setTaken(Boolean taken) {
         this.taken = taken;
     }
+
+    public void setCook(Cook cook) {
+        this.cook = cook;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }
