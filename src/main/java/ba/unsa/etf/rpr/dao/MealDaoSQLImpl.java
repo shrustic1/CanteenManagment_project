@@ -14,5 +14,9 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
     private MealDaoSQLImpl(){
         super("Meals");
     }
+    public static MealDaoSQLImpl getInstance() {
+        if (instance == null) instance = new MealDaoSQLImpl();
+        return instance;
+    }
 
 }
