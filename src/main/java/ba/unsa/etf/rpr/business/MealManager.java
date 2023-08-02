@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.business;
 import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Meal;
+import ba.unsa.etf.rpr.domain.Student;
 import ba.unsa.etf.rpr.exceptions.MyException;
 
 import java.util.List;
@@ -25,7 +26,13 @@ public class MealManager {
     }
     public Meal randomMeal() throws MyException{
         return DaoFactory.mealDao().randomMeal();
+        DaoFactory.mealDao().
     }
-
+    public List<Meal> searchByStudent(Student student) throws MyException{
+        return DaoFactory.mealDao().searchByStudent(student);
+    }
+    public List<Meal> searchByTaken(Boolean taken) throws MyException{
+        return DaoFactory.mealDao().searchByTaken(taken);
+    }
 
 }
