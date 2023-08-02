@@ -38,13 +38,4 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
 
     }
 
-    @Override
-    public Map<String, Object> object2row(Meal object) {
-        Map<String, Object> item = new TreeMap<>();
-    }
-
-    @Override
-    public Meal randomMeal() throws MyException {
-        return null;
-    }
 }
