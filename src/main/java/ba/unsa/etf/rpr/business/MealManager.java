@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.business;
 
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Meal;
 import ba.unsa.etf.rpr.exceptions.MyException;
@@ -16,6 +17,9 @@ public class MealManager {
     }
     public Meal getById(int id) throws MyException{
         return DaoFactory.mealDao().getById(id);
+    }
+    public void update(Meal meal) throws MyException{
+        DaoFactory.mealDao().update(meal);
     }
 
 }
