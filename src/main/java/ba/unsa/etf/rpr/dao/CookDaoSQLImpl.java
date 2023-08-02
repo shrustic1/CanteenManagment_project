@@ -14,6 +14,8 @@ public class CookDaoSQLImpl extends AbstractDao<Cook> implements CookDao{
     }
 
     public static CookDao getInstance() {
+        if (instance == null) instance = new CookDaoSQLImpl();
+        return instance;
     }
 
     @Override
