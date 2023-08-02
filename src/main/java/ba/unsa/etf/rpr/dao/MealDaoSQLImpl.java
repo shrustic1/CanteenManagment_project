@@ -48,5 +48,8 @@ public class MealDaoSQLImpl extends AbstractDao<Meal> implements MealDao{
         item.put("student_id", object.getStudent().getId());
         return item;
     }
-
+    @Override
+    public Meal randomMeal() throws MyException {
+        return executeQueryUnique("SELECT * FROM Meals ORDER BY RAND() LIMIT 1", null);
+    }
 }
