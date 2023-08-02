@@ -16,6 +16,11 @@ public class StudentManager {
     public void delete(int id) throws MyException{
         DaoFactory.studentDao().delete(id);
     }
-
+    public void update(Student student) throws MyException{
+        DaoFactory.studentDao().update(student);
+    }
+    public List<Student> searchByName(String name) throws MyException{
+        return DaoFactory.studentDao().searchByName(name);
+    }
 
 }
