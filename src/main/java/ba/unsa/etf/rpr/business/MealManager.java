@@ -11,7 +11,6 @@ public class MealManager {
     public List<Meal> getAll() throws MyException{
         return DaoFactory.mealDao().getAll();
     }
-
     public void delete(int id) throws MyException{
         DaoFactory.mealDao().delete(id);
     }
@@ -20,6 +19,9 @@ public class MealManager {
     }
     public void update(Meal meal) throws MyException{
         DaoFactory.mealDao().update(meal);
+    }
+    public void add(Meal meal) throws MyException{
+        DaoFactory.mealDao().add(meal);
     }
 
 }
