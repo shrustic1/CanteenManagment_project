@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface StudentDao extends Dao<Student> {
     List<Student> searchByName(String name) throws MyException;
+    List<Student> searchBySurname(String surname) throws MyException;
 
 }
