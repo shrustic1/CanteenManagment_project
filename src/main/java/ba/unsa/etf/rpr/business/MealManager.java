@@ -23,5 +23,9 @@ public class MealManager {
     public void add(Meal meal) throws MyException{
         DaoFactory.mealDao().add(meal);
     }
+    public Meal randomMeal() throws MyException{
+        return DaoFactory.mealDao().randomMeal();
+    }
+
 
 }
