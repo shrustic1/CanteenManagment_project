@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.exceptions.MyException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CookDaoSQLImpl extends AbstractDao<Cook> implements CookDao{
     private static CookDaoSQLImpl instance = null;
@@ -36,6 +37,12 @@ public class CookDaoSQLImpl extends AbstractDao<Cook> implements CookDao{
 
     @Override
     public Map<String, Object> object2row(Cook object) {
-        return null;
+        Map<String, Object> item = new TreeMap<>();
+        item.put("id", object.getId());
+        item.put("name", object.getName());
+        item.put("surname", object.getSurname());
+        item.put("phone_number", object.getPhoneNumber());
+        item.put("number_of_meals_made", object.getNumberOfMealsMade());
+        return item;
     }
 }
