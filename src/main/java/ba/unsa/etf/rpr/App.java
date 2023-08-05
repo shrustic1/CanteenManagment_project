@@ -34,4 +34,11 @@ public class App {
         helpFormatter.printOptions(printWriter, 150, options, 2, 7);
         printWriter.close();
     }
+    public static Options addOptions(){
+        Options options = new Options();
+        options.addOption(addCook);
+        options.addOption(addMeal);
+        options.addOption(addStudent);
+        return options;
+    }
 }
