@@ -3,10 +3,11 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.business.CookManager;
 import ba.unsa.etf.rpr.business.MealManager;
 import ba.unsa.etf.rpr.business.StudentManager;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
-import java.lang.foreign.Linker;
+import java.io.PrintWriter;
 
 
 public class App {
@@ -25,4 +26,12 @@ public class App {
     private static final Option deleteCook = new Option("deleteC","delete-cook",false,"Deletes a cook from database");
     private static final Option deleteStudent = new Option("deleteS","delete-student",false,"Deletes a student from database");
     private static final Option deleteMeal = new Option("deleteM","delete-meal",false,"Deletes a meal from database");
+
+    public static void printFormattedOptions(Options options){
+        HelpFormatter helpFormatter = new HelpFormatter();
+        PrintWriter printWriter = new PrintWriter(System.out);
+        helpFormatter.printUsage(printWriter, 150, "java -jar quote-maker.jar [option] 'something else if needed' ");
+        helpFormatter.printOptions(printWriter, 150, options, 2, 7);
+        printWriter.close();
+    }
 }
