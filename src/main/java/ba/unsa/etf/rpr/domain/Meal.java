@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.domain;
 
 public class Meal implements Idable{
     private int id;
+    private String name;
     private String description;
     private Boolean taken;
     private Cook cook;
@@ -9,6 +10,9 @@ public class Meal implements Idable{
 
     public int getId() {
         return id;
+    }
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
@@ -30,6 +34,9 @@ public class Meal implements Idable{
     @Override
     public void setId(int id) {
         this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setDescription(String description) {
