@@ -28,5 +28,4 @@ public class StudentManager {
     public List<Student> searchByNumberOfTokens(int tokens) throws MyException{
         return DaoFactory.studentDao().searchByNumberOfTokens(tokens);
     }
-
 }
