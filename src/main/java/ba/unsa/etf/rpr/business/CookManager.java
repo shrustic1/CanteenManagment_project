@@ -19,5 +19,4 @@ public class CookManager {
     public List<Cook> getAll() throws MyException{
         return DaoFactory.cookDao().getAll();
     }
-
 }
