@@ -3,11 +3,13 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.business.CookManager;
 import ba.unsa.etf.rpr.business.MealManager;
 import ba.unsa.etf.rpr.business.StudentManager;
+import ba.unsa.etf.rpr.domain.Meal;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 
 public class App {
@@ -40,5 +42,10 @@ public class App {
         options.addOption(addMeal);
         options.addOption(addStudent);
         return options;
+    }
+    public static Meal searchThroughMeals(List<Meal> listOfMeals, String nameOfMeal){
+        Meal meal = null;
+        meal = listOfMeals.stream().filter(m -> m.getName().toLowerCase().equals(nameOfMeal.toLowerCase())).findAny().get();
+        return meal;
     }
 }
