@@ -56,6 +56,12 @@ public class App {
         return cook;
     }
 
+    public static Student searchThroughStudents(List<Student> listOfCooks, String nameOfStudent){
+        Student student = null;
+        student = listOfCooks.stream().filter(c -> c.getName().toLowerCase().equals(nameOfStudent.toLowerCase())).findAny().get();
+        return student;
+    }
+
     public static void main(String[] args) throws MyException, ParseException {
         Options options = addOptions();
         CommandLineParser commandLineParser = new DefaultParser();
